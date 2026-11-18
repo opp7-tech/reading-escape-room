@@ -7,11 +7,11 @@
   'use strict';
   const content = window.ESCAPE_CONTENT;
   const stages = content.stages;
-  const STORAGE_KEY = 'reading-escape-session-v3';
+  const STORAGE_KEY = 'reading-escape-session-v4';
   const TOTAL = stages.reduce((n, stage) => n + stage.questions.length, 0);
   const byId = id => document.getElementById(id);
   const numerals = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[Number(d)]);
-  let state = {name:'', gate:0, question:0};
+  let state = {name:'', gate:0, question:0, record:[]};
   let solved = false;
   let chosenTiles = [];
   let sessionFails = 0;
@@ -30,7 +30,7 @@
       if (!Number.isInteger(candidate.gate) || candidate.gate < 0 || candidate.gate > stages.length) return;
       if (!Number.isInteger(candidate.question) || candidate.question < 0 || candidate.question > 4) return;
       if (candidate.gate === stages.length && candidate.question !== 0) return;
-      state = {name: candidate.name.trim().slice(0,45), gate:candidate.gate, question:candidate.question};
+      state = {name: candidate.name.trim().slice(0,45), gate:candidate.gate, question:candidate.question, record:Array.isArray(candidate.record) ? candidate.record.filter(x=>x && Number.isInteger(x.gate) && Number.isInteger(x.question)).slice(0,25) : []};
     } catch (_) { /* ignore malformed session */ }
   }
   function show(view) {
@@ -63,7 +63,7 @@
     const name = input.value.replace(/\s+/g,' ').trim();
     if (name.length < 2) { input.setCustomValidity('اكتبي اسمًا من حرفين على الأقل.');input.reportValidity();return; }
     input.setCustomValidity('');
-    state = {name:name.slice(0,45),gate:0,question:0};
+    state = {name:name.slice(0,45),gate:0,question:0,record:[]};
     sessionFails = 0;saveState();renderWorld();
   }
   function renderWorld() {
@@ -128,8 +128,26 @@
     feedback.textContent=(kind==='success'?'✨ ':'💡 ')+text;
     if(kind==='error')sessionFails++;
   }
+  function verifiedAnswer(stage, q) {
+    switch (stage.mechanic) {
+      case 'sound': return q.choices[q.correct][1];
+      case 'builder': return q.answer;
+      case 'sentence': return q.words.join(' ');
+      case 'detective': return stage.story[q.evidence];
+      case 'spelling': return q.before + q.answer + q.after;
+      default: return '';
+    }
+  }
   function success() {
     if(solved)return;
+    const stage=stages[state.gate];
+    const q=stage.questions[state.question];
+    // Evidence is recorded ONLY after the game has verified a correct answer.
+    const record={gate:state.gate,question:state.question,answer:verifiedAnswer(stage,q),attempts:sessionFails+1,at:Date.now()};
+    const existing=state.record.findIndex(r=>r.gate===record.gate&&r.question===record.question);
+    if(existing>=0)state.record[existing]=record;
+    else state.record.push(record);
+    saveState();
     solved=true;celebrate();
     showFeedback('رائعة يا بطلة! حللتِ هذه المهمة. يمكنكِ التقدم الآن.','success');
     byId('puzzleArea').querySelectorAll('button,input').forEach(b=>b.disabled=true);
@@ -279,7 +297,7 @@
     show('Victory');
   }
   function restart(){if(!confirm('هل تريدين بدء مغامرة جديدة؟ ستُمسح نتيجة هذه المغامرة من هذا التبويب. احفظي الشهادة أولًا.'))return;
-    state={name:'',gate:0,question:0};saveState();byId('studentName').value='';show('Welcome');
+    state={name:'',gate:0,question:0,record:[]};saveState();byId('studentName').value='';show('Welcome');
   }
   function initialize(){
     if(!content||!Array.isArray(stages)||stages.length!==5)throw new Error('Game content is missing');

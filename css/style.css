@@ -15,3 +15,6 @@
 @media(max-width:390px){.hero-copy h1{font-size:34px}.start-card{padding:13px}.hero-art{min-height:245px;max-height:270px}.hero-art img{height:280px}.hero-features span{font-size:10px}.section-head h2{font-size:25px}.puzzle-card{padding:15px}.letter-slot{width:39px;height:48px;font-size:22px}.built-slots{gap:6px}.tile-row{gap:7px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 @media print{body{background:white!important}.site-head,.site-footer,.view,#certificateDialog{display:none!important}.app-shell{display:none!important}#printOnly{display:block!important;max-width:100%;margin:0}#printOnly img{width:100%;height:auto;display:block}@page{size:A4 landscape;margin:0}}
+
+/* Direct link to student's digital evidence file */
+.evidence-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.evidence-link:hover{background:#f7f2ff}@media(max-width:740px){.victory-actions .evidence-link{width:100%}}
