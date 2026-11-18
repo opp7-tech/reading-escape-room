@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="580" viewBox="0 0 700 580" role="img" aria-label="قلعة خيالية وردية وبنفسجية تحت نجوم لامعة">
+<defs>
+ <linearGradient id="tower" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7c9fa"/><stop offset=".55" stop-color="#b69cd9"/><stop offset="1" stop-color="#886db5"/></linearGradient>
+ <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fde8ee"/><stop offset=".65" stop-color="#d5b7e5"/><stop offset="1" stop-color="#aa8cd0"/></linearGradient>
+ <linearGradient id="roof" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbdbc"/><stop offset=".55" stop-color="#df7b9d"/><stop offset="1" stop-color="#a85d94"/></linearGradient>
+ <linearGradient id="door" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fae3a0"/><stop offset=".5" stop-color="#eabf77"/><stop offset="1" stop-color="#c37e88"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#ffe7ad" stop-opacity=".95"/><stop offset="1" stop-color="#ffe7ad" stop-opacity="0"/></radialGradient>
+ <filter id="shadow" x="-30%" y="-35%" width="170%" height="180%"><feDropShadow dx="0" dy="13" stdDeviation="13" flood-color="#171044" flood-opacity=".42"/></filter>
+ <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<circle cx="350" cy="270" r="260" fill="#937cdd" opacity=".14"/><circle cx="352" cy="274" r="215" fill="#c7b5ff" opacity=".06"/>
+<g fill="#ffeac4"><path d="M68 159l5 11 11 5-11 5-5 11-5-11-11-5 11-5z"/><path d="M553 45l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/><path d="M639 178l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M144 73l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
+<g fill="#fce7e4" opacity=".82"><circle cx="105" cy="271" r="4"/><circle cx="596" cy="297" r="3"/><circle cx="575" cy="131" r="4"/><circle cx="264" cy="44" r="3"/><circle cx="432" cy="89" r="2"/><circle cx="45" cy="344" r="3"/><circle cx="660" cy="360" r="4"/></g>
+<ellipse cx="353" cy="518" rx="310" ry="36" fill="#0f103c" opacity=".25"/>
+<g filter="url(#shadow)">
+ <!-- tall far towers -->
+ <path d="M122 440V240h95v200z" fill="url(#tower)" stroke="#704e9e" stroke-width="5"/>
+ <path d="M483 440V240h95v200z" fill="url(#tower)" stroke="#704e9e" stroke-width="5"/>
+ <path d="M110 240l56-113 63 113z" fill="url(#roof)" stroke="#704e9e" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M471 240l56-113 63 113z" fill="url(#roof)" stroke="#704e9e" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M166 129V100" stroke="#f7d6d4" stroke-width="5"/><path d="M166 100h34l-7 12h-27z" fill="#ffcf8a"/>
+ <path d="M527 129V100" stroke="#f7d6d4" stroke-width="5"/><path d="M527 100h34l-7 12h-27z" fill="#ffcf8a"/>
+ <!-- central main tower -->
+ <path d="M275 431V164h148v267z" fill="url(#tower)" stroke="#71509f" stroke-width="6"/>
+ <path d="M258 164l92-139 90 139z" fill="url(#roof)" stroke="#71509f" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M351 34V14" stroke="#ffe6cc" stroke-width="6"/><path d="M351 14h38l-8 14h-30z" fill="#ffce87"/>
+ <rect x="292" y="184" width="116" height="193" rx="10" fill="#ebcce8" opacity=".65"/>
+ <!-- foreground castle wall -->
+ <path d="M87 460V330h44v-23h33v23h43v-23h33v23h45v-23h33v23h43v-23h34v23h43v-23h34v23h43v-23h33v23h44v130z" fill="url(#wall)" stroke="#74549d" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M90 470h525v26H90z" fill="#a78bc8" stroke="#71509f" stroke-width="5"/>
+ <!-- bricks -->
+ <g stroke="#a78ac9" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M105 371h77m20 0h90m112 0h86m23 0h79M106 415h58m36 0h67m160 0h58m24 0h87M110 458h100m285 0h99"/></g>
+ <!-- arched door with ornamental arch -->
+ <path d="M277 461v-87a73 73 0 0 1 146 0v87z" fill="#74559f" stroke="#705098" stroke-width="8"/>
+ <path d="M293 463v-87a57 57 0 0 1 114 0v87z" fill="url(#door)" stroke="#fbedcc" stroke-width="5"/>
+ <path d="M350 324v138" stroke="#a47a8c" stroke-width="5"/>
+ <circle cx="337" cy="413" r="5" fill="#fff1d2"/><circle cx="363" cy="413" r="5" fill="#fff1d2"/>
+ <!-- tower windows -->
+ <g fill="#fff0bc" stroke="#8266a6" stroke-width="5"><path d="M148 275a18 18 0 0 1 36 0v41h-36z"/><path d="M509 275a18 18 0 0 1 36 0v41h-36z"/><path d="M332 196a17 17 0 0 1 34 0v41h-34z"/></g>
+ <g stroke="#9e7fac" stroke-width="3"><path d="M166 257v58m361-58v58m-178-137v58"/></g>
+ <!-- turrets & details -->
+ <circle cx="219" cy="330" r="7" fill="#ffefcf"/><circle cx="486" cy="329" r="7" fill="#ffefcf"/>
+</g>
+<!-- paths and decorations -->
+<path d="M279 493q-14 33-67 58h276q-53-25-67-58" fill="#ceadd6" opacity=".6"/>
+<g fill="#a1d4b8"><ellipse cx="87" cy="498" rx="57" ry="28"/><ellipse cx="608" cy="498" rx="54" ry="27"/></g>
+<g fill="#eaa0c1"><circle cx="67" cy="484" r="10"/><circle cx="103" cy="506" r="8"/><circle cx="600" cy="490" r="11"/><circle cx="630" cy="509" r="8"/></g>
+<ellipse cx="356" cy="386" rx="62" ry="71" fill="url(#halo)" opacity=".42"/>
+<g transform="translate(500 430)"><circle r="37" fill="#ffe9ae" opacity=".21"/><path d="M0-31l8 18 20 2-15 13 4 20L0 12-18 22l5-20-15-13 20-2z" fill="#ffdf8f" stroke="#fff0c5" stroke-width="3"/><circle cx="-8" cy="-2" r="2.5" fill="#59465d"/><circle cx="8" cy="-2" r="2.5" fill="#59465d"/><path d="M-7 6q7 9 14 0" fill="none" stroke="#59465d" stroke-width="2.5" stroke-linecap="round"/></g>
+</svg>

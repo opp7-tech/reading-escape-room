@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#241d4e">
+  <meta name="description" content="مغامرة تعليمية تفاعلية لمعالجة المهارات الأساسية في لغتي للصف الثاني الابتدائي.">
+  <title>غرفة الهروب القرائي | الابتدائية الثانية</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/content.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient-stars" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="site-head">
+      <div class="site-brand"><span class="brand-icon" aria-hidden="true">✦</span><span><strong>مغامرة القارئة الصغيرة</strong><small>لغتي • الصف الثاني الابتدائي</small></span></div>
+      <div class="head-right"><span class="school-chip">الابتدائية الثانية</span><button id="homeLink" type="button" class="nav-btn hidden" title="العودة إلى خريطة الأبواب">⌂ <span>الخريطة</span></button></div>
+    </header>
+    <main id="appMain">
+      <section id="viewWelcome" class="view" aria-labelledby="welcomeTitle">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="twinkle">✧</span> مشروع لرفع نواتج التعلّم <span class="twinkle">✧</span></div>
+          <h1 id="welcomeTitle">غرفة <span class="text-glow">الهروب</span><br>من التعثّر القرائي</h1>
+          <p class="subtitle">خمس بوابات سحرية، خمس ألعاب مختلفة، وكنزٌ لا تصلين إليه إلا بعد حلّ <strong>جميع</strong> المهام!</p>
+          <form id="startForm" class="start-card" autocomplete="off">
+            <label for="studentName">ما اسم القارئة الشجاعة؟</label>
+            <div class="name-entry"><span aria-hidden="true">🌷</span><input id="studentName" name="studentName" type="text" maxlength="45" minlength="2" placeholder="اكتبي اسمكِ هنا" required aria-describedby="nameHelp"></div>
+            <small id="nameHelp">سيظهر اسمكِ على شهادة الكنز عند إكمال جميع البوابات.</small>
+            <button class="primary-btn large-btn" type="submit">ابدئي المغامرة <span aria-hidden="true">←</span></button>
+          </form>
+          <div class="hero-features"><span>🔐 لا يمكن تخطّي المهام</span><span>🎲 ٥ ألعاب متنوعة</span><span>🏅 شهادة بعد الإنجاز</span></div>
+        </div>
+        <div class="hero-art"><div class="art-glow"></div><img src="assets/castle.svg" alt="قلعة كرتونية بنفسجية مضيئة بخمسة أبراج وبوابة سحرية" width="700" height="580"><div class="hero-tag">✨ افتحي الأبواب بالمعرفة</div></div>
+      </section>
+      <section id="viewWorld" class="view hidden" aria-labelledby="worldTitle">
+        <div class="section-head"><div><div class="eyebrow">خريطة المغامرة</div><h2 id="worldTitle">بوابات <span>القلعة الخمس</span></h2><p id="worldHello">يا بطلتنا، افتحي الأبواب بالترتيب!</p></div><div class="progress-stat"><strong id="doorsDone">٠ / ٥</strong><span>بوابات مفتوحة</span></div></div>
+        <div class="progress-track"><div id="overallProgress" class="progress-fill"></div></div>
+        <div class="map-layout"><div class="doors-grid" id="doorsGrid"></div><aside class="guide-card"><div class="guide-mascot" aria-hidden="true">🌟</div><h3>أنا نجمة، دليلتكِ!</h3><p>كل بوابة فيها <strong>٥ مهام</strong>، ولن تحصلي على المفتاح حتى تجيبي عن كل مهمة إجابة صحيحة.</p><div class="guide-note">💡 إذا أخطأتِ، حاولي مرة أخرى. لا يوجد زر لتخطّي السؤال.</div><a href="worksheets.html" class="text-link" target="_blank" rel="noopener">🖨️ صفحات الشواهد القابلة للطباعة</a></aside></div>
+      </section>
+      <section id="viewGame" class="view hidden" aria-labelledby="gameTitle">
+        <div class="game-top"><div class="game-topline"><span id="gameBadge" class="game-badge">البوابة الأولى</span><span id="gameCounter" class="question-counter">المهمة ١ من ٥</span></div><h2 id="gameTitle">عنوان اللعبة</h2><p id="gameIntro" class="game-intro"></p><div class="task-dots" id="taskDots" aria-label="تقدم المهام"></div></div>
+        <div class="puzzle-card" id="puzzleCard"><div id="puzzleArea"></div><div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div><div class="puzzle-actions"><button type="button" id="nextTask" class="primary-btn hidden">المهمة التالية ←</button><button type="button" id="retryButton" class="subtle-btn hidden">↻ أعيدي المحاولة</button></div></div>
+        <div class="game-foot"><span>🔒 يجب حلّ المهمة الحالية قبل الانتقال</span><span id="stageLabel"></span></div>
+      </section>
+      <section id="viewVictory" class="view hidden" aria-labelledby="victoryTitle">
+        <div class="victory-stage"><div class="confetti" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span></div><div class="victory-medal" aria-hidden="true">🏆</div><div class="eyebrow">فتحتِ جميع أبواب القلعة</div><h1 id="victoryTitle">أنتِ بطلة <span>القراءة!</span></h1><p id="victoryName"></p><p>أنجزتِ المهام الخمس والعشرين، واستحققتِ شهادة الكنز القرائي.</p><div class="victory-checks" id="victoryChecks"></div><div class="victory-actions"><button type="button" class="primary-btn" id="downloadCertificate">⬇ حفظ الشهادة كصورة</button><button type="button" class="secondary-btn" id="viewCertificate">🖼️ عرض صورة الشهادة</button><button type="button" class="secondary-btn" id="printCertificate">🖨️ طباعة الشهادة</button></div><p class="save-help">احتفظي بصورة الشهادة في جهازكِ ثم اعرضيها على معلمتكِ عزيزة العنزي.</p><button type="button" class="subtle-btn" id="restartGame">بدء مغامرة لطالبة أخرى ↻</button></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>إعداد المعلمة: <strong>عزيزة العنزي</strong></span><span class="dot-separator">✦</span><span>مديرة المدرسة: <strong>ريم العنزي</strong></span><span class="dot-separator">✦</span><span>الابتدائية الثانية</span></footer>
+  </div>
+  <div id="printOnly" class="print-only" aria-hidden="true"></div>
+  <dialog id="certificateDialog"><div class="dialog-bar"><h2>شهادة الإنجاز 🎉</h2><button type="button" id="closeDialog" class="subtle-btn">إغلاق ✕</button></div><img id="certificatePreview" alt="شهادة اجتياز غرفة الهروب القرائي"><p>للحفظ على الجوال: اضغطي مطولًا على الصورة، ثم اختاري «حفظ الصورة» إذا لم يبدأ التنزيل.</p></dialog>
+  <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') { window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {})); }</script>
+</body>
+</html>
